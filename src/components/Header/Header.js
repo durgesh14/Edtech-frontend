@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ setSearchTerm }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [inputValue, setInputValue] = useState(""); // Local state for the input value
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -12,11 +12,13 @@ const Header = () => {
   };
 
   const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+    setInputValue(event.target.value); // Update the local state when input changes
   };
+
   const handleSearch = (event) => {
     event.preventDefault();
-    navigate(`/search/${searchTerm}`);
+    setSearchTerm(inputValue); // Set the parent's state when submitting the form
+    navigate(`/search/${inputValue}`);
   };
 
   return (
@@ -30,7 +32,7 @@ const Header = () => {
             <input
               type="search"
               placeholder="Search..."
-              value={searchTerm}
+              value={inputValue} // Use the local state as value
               onChange={handleSearchChange}
               className="search-input"
             />

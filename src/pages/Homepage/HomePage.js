@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "./HomePage.css";
 import YoutubeEmbed from "../../components/YoutubeEmbed/YoutubeEmbed";
+import { useParams } from "react-router-dom";
 
 async function fetchData(page) {
   const response = await fetch(
@@ -12,25 +13,44 @@ async function fetchData(page) {
 }
 
 const HomePage = () => {
+  const [allItems, setAllItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
   const [items, setItems] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const [feedback, setFeedback] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const { searchTerm } = useParams();
+
+  console.log(searchTerm);
 
   useEffect(() => {
     const loadItems = async () => {
       const newItems = await fetchData(page);
+      setAllItems((prevItems) => [...prevItems, ...newItems]);
       if (newItems.length === 0) {
         setHasMore(false);
       } else {
-        setItems((prevItems) => [...prevItems, ...newItems]);
         setPage((prevPage) => prevPage + 1);
       }
       setIsLoading(false);
     };
     loadItems();
   }, [page]);
+
+  useEffect(() => {
+    // filter allItems based on searchTerm and set the result to filteredItems
+    if (searchTerm) {
+      const lowercasedSearchTerm = searchTerm.toLowerCase();
+      setFilteredItems(
+        allItems.filter((item) =>
+          item.title.toLowerCase().includes(lowercasedSearchTerm)
+        )
+      );
+    } else {
+      setFilteredItems(allItems);
+    }
+  }, [allItems, searchTerm]);
 
   const handleOptionChange = (questionId, option, answer) => {
     setFeedback((prevFeedback) => ({
@@ -45,7 +65,7 @@ const HomePage = () => {
 
   return (
     <InfiniteScroll
-      dataLength={items.length}
+      dataLength={filteredItems.length}
       next={() => {
         if (hasMore) {
           setPage((prevPage) => prevPage + 1);
@@ -55,7 +75,7 @@ const HomePage = () => {
       loader={<h4>Loading...</h4>}
       endMessage={<p>End of content</p>}
     >
-      {items.map((item, itemIndex) => (
+      {filteredItems.map((item, itemIndex) => (
         <div className="wrapper">
           <div className="body-content" key={`${item.sectionId}-${itemIndex}`}>
             <h2 className="section-title">{item.title}</h2>
