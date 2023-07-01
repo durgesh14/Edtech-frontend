@@ -13,6 +13,8 @@ const SignupPage = () => {
     password: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleInputChange = (event) => {
     setFormState({
       ...formState,
@@ -23,6 +25,7 @@ const SignupPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios({
         method: "post",
@@ -36,6 +39,8 @@ const SignupPage = () => {
       navigate("/login");
     } catch (error) {
       console.error("Signup failed", error);
+    } finally {
+      setIsLoading(false); // end loading
     }
   };
   console.log(formState);
@@ -66,8 +71,8 @@ const SignupPage = () => {
               required
             />
           </label>
-          <button className="submit-btn" type="submit">
-            Sign Up
+          <button className="submit-btn" type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Sign Up"}
           </button>
         </form>
       </div>

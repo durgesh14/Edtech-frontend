@@ -8,12 +8,14 @@ import AuthService from "../../services/AuthService";
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     const isAuthenticated = await AuthService.authenticate(username, password);
     if (isAuthenticated) {
       navigate(from);
@@ -43,7 +45,9 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <button type="submit">Log in</button>
+          <button className="submit-btn" type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Log in"}
+          </button>
         </form>
       </div>
     </div>

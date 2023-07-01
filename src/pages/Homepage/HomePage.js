@@ -16,6 +16,7 @@ const HomePage = () => {
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const [feedback, setFeedback] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadItems = async () => {
@@ -26,6 +27,7 @@ const HomePage = () => {
         setItems((prevItems) => [...prevItems, ...newItems]);
         setPage((prevPage) => prevPage + 1);
       }
+      setIsLoading(false);
     };
     loadItems();
   }, [page]);
@@ -36,6 +38,10 @@ const HomePage = () => {
       [questionId]: option === answer ? "Correct!" : "Incorrect, try again.",
     }));
   };
+
+  if (isLoading) {
+    return <div className="body-content">Loading...</div>;
+  }
 
   return (
     <InfiniteScroll

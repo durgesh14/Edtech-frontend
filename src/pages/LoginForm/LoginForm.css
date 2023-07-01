@@ -6,7 +6,7 @@
 }
 .login-left {
   flex: 1;
-  background: url("https://i.imgur.com/aJ8lJmR.jpg") center center no-repeat;
+  background: url("https://i.imgur.com/3SK2lqa.jpg") center center no-repeat;
   background-size: cover;
   margin-top: 75px;
 }
@@ -41,6 +41,7 @@
   background-color: #ffffff;
   font-size: 1.2em; /* Larger font size for children */
   margin-bottom: 20px;
+  padding: 10px;
 }
 
 .login-form button[type="submit"] {
