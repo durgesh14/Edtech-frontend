@@ -1,0 +1,36 @@
+.footer {
+  width: 100%;
+  bottom: 0;
+  background-color: #25173c;
+  color: #e9d5ca;
+  background: linear-gradient(to right, #be3e0b, #be3e0b);
+
+  text-align: center;
+  margin-top: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.footer-text {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.social-icons {
+  display: flex;
+}
+
+.social-icons a {
+  color: #e9d5ca;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.social-icons i {
+  font-size: 20px;
+}

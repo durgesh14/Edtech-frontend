@@ -1,0 +1,92 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background-color: #261c15;
+  color: #e9d5ca; /* Off White */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em; /* Adjust your padding to align items properly */
+  height: 100%; /* Make sure this is same as your header height */
+  background-color: #261c15; /* Dark Blue */
+  width: inherit;
+}
+
+.navbar-brand {
+  color: #e9d5ca; /* Off White */
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 17px;
+}
+.navbar-brand:hover {
+  color: #ffffff; /* Pink color on hover */
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar {
+  display: flex;
+  height: 100%; /* Make sure this is same as your header height */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 25px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px 20px;
+  margin-left: 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: #be3e0b; /* Purple */
+  color: #e9d5ca; /* Off White */
+  font-size: 16px;
+  transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+.search-input:focus {
+  background-color: #be3e0b; /* Darker purple on focus */
+  width: 100%;
+}
+.search-input:hover {
+  background-color: #f97c4b; /* Slightly lighter purple on hover */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #e9d5ca;
+  opacity: 1; /* Firefox */
+}
+.navbar-container {
+  background: linear-gradient(to right, #be3e0b, #f97c4b);
+}
+
+.navbar-container {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.navbar-container {
+  animation: fadeIn 1s ease-in;
+}
