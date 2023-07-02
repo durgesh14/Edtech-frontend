@@ -1,7 +1,6 @@
-// LoginForm.js
 import React, { useState } from "react";
 
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import "./LoginForm.css";
 import AuthService from "../../services/AuthService";
 
@@ -48,6 +47,14 @@ const LoginForm = () => {
           <button className="submit-btn" type="submit" disabled={isLoading}>
             {isLoading ? "Loading..." : "Log in"}
           </button>
+          <p>
+            Don't have an account? <Link to="/signup">Sign Up</Link>
+          </p>
+          <div className="test-account-info">
+            <p>For testing, you can use the following account:</p>
+            <p>Username: zoro</p>
+            <p>Password: 12345</p>
+          </div>
         </form>
       </div>
     </div>
