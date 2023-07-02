@@ -34,8 +34,6 @@ const HomePage = () => {
       setAllItems((prevItems) => [...prevItems, ...newItems]);
       if (newItems.length === 0) {
         setHasMore(false);
-      } else {
-        setPage((prevPage) => prevPage + 1);
       }
       setIsLoading(false);
     };
