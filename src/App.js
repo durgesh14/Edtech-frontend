@@ -28,7 +28,11 @@ function App() {
             />
             <Route
               path="/search/:searchTerm"
-              element={<HomePage searchTerm={searchTerm} />}
+              element={
+                <ProtectedRoute>
+                  <HomePage searchTerm={searchTerm} />
+                </ProtectedRoute>
+              }
             />
 
             <Route path="/signup" element={<SignupPage />} />

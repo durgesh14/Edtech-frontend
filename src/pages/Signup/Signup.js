@@ -3,7 +3,7 @@ import axios from "axios";
 import qs from "qs";
 
 import "./Signup.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const SignupPage = () => {
     } catch (error) {
       console.error("Signup failed", error);
     } finally {
-      setIsLoading(false); // end loading
+      setIsLoading(false);
     }
   };
   console.log(formState);
@@ -74,6 +74,9 @@ const SignupPage = () => {
           <button className="submit-btn" type="submit" disabled={isLoading}>
             {isLoading ? "Loading..." : "Sign Up"}
           </button>
+          <p>
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
         </form>
       </div>
     </div>

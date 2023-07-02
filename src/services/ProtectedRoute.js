@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import AuthService from "./AuthService";
-import Cookies from "js-cookie";
 
 const ProtectedRoute = ({ children }) => {
   const location = useLocation();

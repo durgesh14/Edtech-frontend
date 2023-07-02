@@ -7,34 +7,34 @@
   display: flex;
   align-items: center;
   background-color: #261c15;
-  color: #e9d5ca; /* Off White */
+  color: #e9d5ca;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  padding: 0 1em; /* Adjust your padding to align items properly */
-  height: 100%; /* Make sure this is same as your header height */
-  background-color: #261c15; /* Dark Blue */
+  padding: 0 1em;
+  height: 100%;
+  background-color: #261c15;
   width: inherit;
 }
 
 .navbar-brand {
-  color: #e9d5ca; /* Off White */
+  color: #e9d5ca;
   text-decoration: none;
   font-size: 1.5em;
   font-weight: bold;
   margin-top: 17px;
 }
 .navbar-brand:hover {
-  color: #ffffff; /* Pink color on hover */
+  color: #ffffff;
   transition: color 0.3s ease-in-out;
 }
 
 .navbar {
   display: flex;
-  height: 100%; /* Make sure this is same as your header height */
+  height: 100%;
 }
 
 .search-container {
@@ -51,25 +51,24 @@
   border-radius: 20px;
   border: none;
   outline: none;
-  background-color: #be3e0b; /* Purple */
-  color: #e9d5ca; /* Off White */
+  background-color: #be3e0b;
+  color: #e9d5ca;
   font-size: 16px;
   transition: background-color 0.3s ease, width 0.3s ease;
 }
 
 .search-input:focus {
-  background-color: #be3e0b; /* Darker purple on focus */
+  background-color: #be3e0b;
   width: 100%;
 }
 .search-input:hover {
-  background-color: #f97c4b; /* Slightly lighter purple on hover */
+  background-color: #f97c4b;
   transition: background-color 0.3s ease-in-out;
 }
 
 .search-input::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #e9d5ca;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 .navbar-container {
   background: linear-gradient(to right, #be3e0b, #f97c4b);
@@ -89,4 +88,15 @@
 
 .navbar-container {
   animation: fadeIn 1s ease-in;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+  .navbar-brand {
+    color: #e9d5ca;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 17px;
+  }
 }

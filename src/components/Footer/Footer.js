@@ -9,17 +9,21 @@ const Footer = () => {
         <p>
           © {year} {`< EdTech /> All rights reserved.`}{" "}
         </p>
-        {/* <p> Stay connected with us on social media! </p> */}
+
         <div className="social-icons">
+          {/* eslint-disable-next-line */}
           <a href="#">
             <i className="fab fa-facebook-f"></i>
           </a>
+          {/* eslint-disable-next-line */}
           <a href="#">
             <i className="fab fa-twitter"></i>
           </a>
+          {/* eslint-disable-next-line */}
           <a href="#">
             <i className="fab fa-instagram"></i>
           </a>
+          {/* eslint-disable-next-line */}
           <a href="#">
             <i className="fab fa-linkedin-in"></i>
           </a>

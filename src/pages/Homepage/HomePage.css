@@ -119,3 +119,57 @@
   background-position: left center, right center;
   background-size: auto;
 }
+
+/* MOBILE VIEW */
+@media only screen and (max-width: 600px) {
+  .body-content {
+    margin-top: 8vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding: 5px;
+  }
+
+  .section-title,
+  .quiz-title {
+    font-size: 1.5em;
+  }
+
+  .section {
+    padding: 10px;
+  }
+
+  .radio-option {
+    font-size: 1em;
+  }
+
+  .option-label {
+    font-size: 1em;
+  }
+
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .feedback-message.correct,
+  .feedback-message.incorrect {
+    padding: 5px;
+    font-size: 1em;
+  }
+
+  .banner-text {
+    padding: 10px;
+    font-size: 0.8em;
+  }
+
+  .float-button {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .sidebar {
+    font-size: 0.8em;
+  }
+}
